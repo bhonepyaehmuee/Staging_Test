@@ -48,5 +48,12 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to Staging') {
+            steps {
+                withKubeConfig([credentialsId: 'kubeconfig-credentials']) {
+                    sh 'kubectl apply -f deployment.yaml'
+                }
+            }
+        }
     }
 }
