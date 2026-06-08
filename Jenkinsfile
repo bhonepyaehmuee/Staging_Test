@@ -15,7 +15,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/bhonepyaehmuee/HelloKubnernetes.git'
+                    url: 'https://github.com/bhonepyaehmuee/Staging_Test.git'
             }
         }
 
