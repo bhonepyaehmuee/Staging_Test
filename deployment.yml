@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stagingTest-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: staging-test
+  template:
+    metadata:
+      labels:
+        app: staging-test
+    spec:
+      containers:
+        - name: staging-test-container
+          image: bownoed/staging-test-image:v1.0
+          ports:
+            - containerPort: 8080
+          # 👉 PUT env HERE (inside container)
+          env:
+            - name: SERVER_SERVLET_CONTEXT_PATH
+              value: "/hello"
+            - name: SPRINGDOC_API_DOCS_PATH
+              value: "/hello/v3/api-docs"
+            - name: SPRINGDOC_SWAGGER_UI_PATH
+              value: "/swagger-ui.html"
