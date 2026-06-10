@@ -50,7 +50,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                withKubeConfig([credentialsId: 'kubeconfig']) {
+                withKubeConfig([credentialsId: 'staging-kubeconfig']) {
                     sh 'kubectl apply -f deployment.yml'
                 }
             }
