@@ -61,7 +61,7 @@ pipeline {
                     sh '''
                         kubectl config current-context
                         kubectl get nodes
-                        kubectl apply -f deployment.yml
+                        kubectl apply -f deployment.yml --server = https://host.docker.internal:50625 --validate=false --insecure-skip-tls-verify=true
                     '''
                 }
             }
