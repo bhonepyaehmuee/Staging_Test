@@ -61,7 +61,7 @@ pipeline {
                     sh '''
                         kubectl config current-context
                         kubectl get nodes
-                        kubectl apply -f deployment.yml --server = https://staging-control-plane:6443 --validate=false --insecure-skip-tls-verify=true
+                        kubectl apply -f deployment.yml --server=https://staging-control-plane:6443 --validate=false --insecure-skip-tls-verify=true
                     '''
                 }
             }
